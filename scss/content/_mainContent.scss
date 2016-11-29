@@ -1,4 +1,19 @@
 
+@mixin tablet {
+    @media (min-width: #{$tablet-width} ){
+         @content;
+    }
+
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width }){
+         @content;
+    }
+
+}
+
+
 .aboutMe {
 	@extend %center;
   padding: 5%;
@@ -6,7 +21,7 @@
 	@extend %fontSize;
   
   &::after {
-      @media #{$brk-tablet} {
+      @include tablet {
         content: "";
         display: block;
         clear: both;
@@ -44,8 +59,10 @@
   }
 }
 
+
+
 .banner {
-  @media #{$brk-tablet} {
+  @include tablet {
     max-width: 40%;
 	  float: right;
 }  
@@ -53,7 +70,7 @@
 }
 
 .story {
-  @media #{$brk-tablet} {
+  @include tablet {
     max-width: 60%;
     padding-right:30px;
 	  padding-left: 30px;
@@ -62,14 +79,14 @@
 }
 
 .middle {
-     @media #{$brk-tablet} {
+     @include tablet  {
         width: 45%;
         padding-left:10%;
         float: left;
         height: 500px;
     }
     
-    @media #{$brk-desktop} {
+   @include desktop  {
       width: 33.33%;
 			padding-left:3%;
 			height: 500px;
